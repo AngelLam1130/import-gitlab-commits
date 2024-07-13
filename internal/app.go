@@ -18,7 +18,7 @@ import (
 const (
 	getCurrentUserTimeout = 2 * time.Second
 
-	maxProjects = 1000
+	maxProjects = 10000
 )
 
 type App struct {
@@ -99,6 +99,7 @@ func (a *App) Run(ctx context.Context) error {
 			}
 
 			projectCommitCounter[projectID] = commits
+			a.logger.Printf("project %d: commits %d", projectID, commits)
 		}
 
 		page = nextPage

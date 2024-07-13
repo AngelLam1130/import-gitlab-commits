@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	maxCommits = 1000
+	maxCommits = 10000
 )
 
 type GitLab struct {
@@ -54,7 +54,7 @@ func (s *GitLab) CurrentUser(ctx context.Context) (*User, error) {
 
 func (s *GitLab) FetchProjectPage(ctx context.Context, page int, user *User, idAfter int,
 ) (_ []int, nextPage int, _ error) {
-	const perPage = 100
+	const perPage = 10000
 
 	projects := make([]int, 0, perPage)
 
