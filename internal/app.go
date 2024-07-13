@@ -185,6 +185,7 @@ func (a *App) doCommitsForProject(
 
 	for _, commit := range commits {
 		committer.When = commit.CommittedAt
+		a.logger.Printf("Commit When %q", commit.CommittedAt)
 
 		if _, errCommit := worktree.Commit(commit.Message, &git.CommitOptions{
 			Author:            committer,
