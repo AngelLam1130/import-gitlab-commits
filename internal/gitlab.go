@@ -173,19 +173,14 @@ func (s *GitLab) fetchCommitPage(
 		return nil, 0, fmt.Errorf("get commits for project %d: %w", projectID, err)
 	}
 
-	comCount := 0
 	for _, comm := range comms {
-		if comCount <= 1 {
-
-			if !contains(user.Emails, comm.AuthorEmail) || !contains(user.Emails, comm.CommitterEmail) {
-				continue
-			}
-
-			s.logger.Printf("fetching commit: %s %s", comm.ShortID, comm.CommittedDate)
-
-			commits = append(commits, NewCommit(*comm.CommittedDate, projectID, comm.ID))
-			comCount++
+		if !contains(user.Emails, comm.AuthorEmail) || !contains(user.Emails, comm.CommitterEmail) {
+			continue
 		}
+
+		s.logger.Printf("fetching commit: %s %s", comm.ShortID, comm.CommittedDate)
+
+		commits = append(commits, NewCommit(*comm.CommittedDate, projectID, comm.ID))
 	}
 
 	// For performance reasons, if a query returns more than 10,000 records, GitLab

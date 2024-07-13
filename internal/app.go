@@ -100,6 +100,9 @@ func (a *App) Run(ctx context.Context) error {
 
 			projectCommitCounter[projectID] = commits
 			projectID = projectID + 1
+			if projectID >= 3 {
+				break
+			}
 			a.logger.Printf("project %d: commits %d", projectID, commits)
 		}
 
