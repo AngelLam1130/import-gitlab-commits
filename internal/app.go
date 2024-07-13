@@ -59,7 +59,7 @@ func New(logger *log.Logger, gitlabToken string, gitlabBaseURL *url.URL, committ
 func (a *App) Run(ctx context.Context) error {
 	ctxCurrent, cancel := context.WithTimeout(ctx, getCurrentUserTimeout)
 	defer cancel()
-
+	a.logger.Printf("Current branch")
 	currentUser, err := a.gitlab.CurrentUser(ctxCurrent)
 	if err != nil {
 		return fmt.Errorf("get current user: %w", err)
