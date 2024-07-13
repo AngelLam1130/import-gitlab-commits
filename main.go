@@ -9,7 +9,7 @@ import (
 	"os"
 	"time"
 
-	app "github.com/alexandear/import-gitlab-commits/internal"
+	app "github.com/AngelLam1130/import-gitlab-commits/internal"
 )
 
 const (

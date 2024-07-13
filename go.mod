@@ -1,4 +1,4 @@
-module github.com/alexandear/import-gitlab-commits
+module github.com/AngelLam1130/import-gitlab-commits
 
 go 1.22
 
