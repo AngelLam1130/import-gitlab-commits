@@ -144,9 +144,9 @@ func (s *GitLab) FetchCommits(ctx context.Context, user *User, projectID int, si
 	}
 
 	// Reverse slice.
-	// for i, j := 0, len(commits)-1; i < j; i, j = i+1, j-1 {
-	// 	commits[i], commits[j] = commits[j], commits[i]
-	// }
+	for i, j := 0, len(commits)-1; i < j; i, j = i+1, j-1 {
+		commits[i], commits[j] = commits[j], commits[i]
+	}
 
 	return commits, nil
 }
