@@ -93,7 +93,7 @@ func (a *App) Run(ctx context.Context) error {
 		}
 
 		for _, project := range projects {
-			if projectID <= 2 {
+			if projectID <= 4 {
 				projectID = projectID + 1
 				continue
 			}
@@ -104,7 +104,7 @@ func (a *App) Run(ctx context.Context) error {
 
 			projectCommitCounter[projectID] = commits
 			projectID = projectID + 1
-			if projectID >= 4 {
+			if projectID >= 6 {
 				break
 			}
 
