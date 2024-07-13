@@ -94,6 +94,7 @@ func (a *App) Run(ctx context.Context) error {
 
 		for _, project := range projects {
 			if projectID <= 2 {
+				projectID = projectID + 1
 				continue
 			}
 			commits, errCommit := a.doCommitsForProject(ctx, worktree, currentUser, project, lastCommitDate)
