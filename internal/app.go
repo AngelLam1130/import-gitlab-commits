@@ -178,19 +178,18 @@ func (a *App) doCommitsForProject(
 
 	var commitCounter int
 
-	committer := &object.Signature{
-		Name:  a.committerName,
-		Email: a.committerEmail,
-	}
-
 	for _, commit := range commits {
-		committer.When = commit.CommittedAt
 		a.logger.Printf("Commit When %q", commit.CommittedAt)
+		committer := &object.Signature{
+			Name:  a.committerName,
+			Email: a.committerEmail,
+			When:  commit.CommittedAt,
+		}
 
 		if _, errCommit := worktree.Commit(commit.Message, &git.CommitOptions{
 			Author:            committer,
 			Committer:         committer,
-			AllowEmptyCommits: true,
+			AllowEmptyCommits: false,
 		}); errCommit != nil {
 			return commitCounter, fmt.Errorf("commit: %w", errCommit)
 		}
