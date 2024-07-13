@@ -1,6 +1,8 @@
 module github.com/AngelLam1130/import-gitlab-commits
 
-go 1.22
+go 1.22.1
+
+toolchain go1.22.5
 
 require (
 	github.com/go-git/go-git/v5 v5.11.0

@@ -1,10 +1,10 @@
 # Import GitLab Commits
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/alexandear/import-gitlab-commits)](https://goreportcard.com/report/github.com/alexandear/import-gitlab-commits)
+[![Go Report Card](https://goreportcard.com/badge/github.com/AngelLam1130/import-gitlab-commits)](https://goreportcard.com/report/github.com/AngelLam1130/import-gitlab-commits)
 
 The tool to import commits from private GitLab to separate repo. Can be used to show your programming activity for another company in GitHub.
 
-Check out this informative blog post for a practical use case on how to import GitLab commits [here](https://alexandear.github.io/posts/2023-03-08-import-gitlab-commits/).
+Check out this informative blog post for a practical use case on how to import GitLab commits [here](https://AngelLam1130.github.io/posts/2023-03-08-import-gitlab-commits/).
 
 ## Getting Started
 
@@ -12,7 +12,7 @@ Check out this informative blog post for a practical use case on how to import G
 2. Install the program by running the command in a shell:
 
     ```shell
-    go install github.com/alexandear/import-gitlab-commits@latest
+    go install github.com/AngelLam1130/import-gitlab-commits@latest
     ```
 
 3. Set environment variables and run `import-gitlab-commits`:

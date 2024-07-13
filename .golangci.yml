@@ -16,7 +16,7 @@ linters-settings:
     sections:
       - standard
       - default
-      - prefix(github.com/alexandear/import-gitlab-commits)
+      - prefix(github.com/AngelLam1130/import-gitlab-commits)
   goconst:
     min-len: 2
     min-occurrences: 2
