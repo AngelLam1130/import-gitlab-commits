@@ -93,22 +93,18 @@ func (a *App) Run(ctx context.Context) error {
 		}
 
 		for _, project := range projects {
-			if projectID <= 4 {
-				projectID = projectID + 1
-				continue
-			}
-			commits, errCommit := a.doCommitsForProject(ctx, worktree, currentUser, project, lastCommitDate)
-			if errCommit != nil {
-				return fmt.Errorf("do commits: %w", errCommit)
-			}
+			if projectID == 0 {
+				commits, errCommit := a.doCommitsForProject(ctx, worktree, currentUser, project, lastCommitDate)
+				if errCommit != nil {
+					return fmt.Errorf("do commits: %w", errCommit)
+				}
 
-			projectCommitCounter[projectID] = commits
-			projectID = projectID + 1
-			if projectID >= 6 {
+				projectCommitCounter[projectID] = commits
+				a.logger.Printf("project %d: commits %d", projectID, commits)
+			} else {
 				break
 			}
-
-			a.logger.Printf("project %d: commits %d", projectID, commits)
+			projectID = projectID + 1
 		}
 
 		page = nextPage
