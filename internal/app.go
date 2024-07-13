@@ -93,7 +93,7 @@ func (a *App) Run(ctx context.Context) error {
 		}
 
 		for _, project := range projects {
-			if projectID == 5 {
+			if projectID == 6 {
 				commits, errCommit := a.doCommitsForProject(ctx, worktree, currentUser, project, lastCommitDate)
 				if errCommit != nil {
 					return fmt.Errorf("do commits: %w", errCommit)
@@ -101,7 +101,7 @@ func (a *App) Run(ctx context.Context) error {
 
 				projectCommitCounter[projectID] = commits
 				a.logger.Printf("project %d: commits %d", projectID, commits)
-			} else if projectID < 5 {
+			} else if projectID < 6 {
 				projectID = projectID + 1
 				continue
 			} else {
